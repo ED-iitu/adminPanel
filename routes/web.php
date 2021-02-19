@@ -18,5 +18,6 @@ Route::get('/', 'HomeController@index')->name('home')->middleware('auth');
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
 Route::resource('news','NewsController')->middleware('auth');
+Route::resource('contacts','ContactsController')->middleware('auth');
 
 Auth::routes();

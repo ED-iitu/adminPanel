@@ -158,13 +158,14 @@ class NewsController extends Controller
 
         $id = $request->id;
         $lang = $request->lang;
+        $perPage = $request->per_page ?? 5;
 
         if (null == $lang) {
             $lang = 'ru';
         }
 
         if (null == $id) {
-            $news = News::query()->where(['lang' => $lang])->paginate(1);
+            $news = News::query()->where(['lang' => $lang])->paginate($perPage);
 
             if ($news->isEmpty()) {
                 return response(['error' => 'Список новостей пуст'], 404);
@@ -175,7 +176,7 @@ class NewsController extends Controller
             ], 200);
         }
 
-        $news = News::query()->where(['id' => $id, 'lang' => $lang])->get();
+        $news = News::query()->where(['id' => $id, 'lang' => $lang])->paginate($perPage);
 
         if ($news->isEmpty()) {
             return response(['error' => 'Новость не найдена'], 404);
@@ -191,17 +192,15 @@ class NewsController extends Controller
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
      */
     public function basic_email(Request $request) {
-        $data = [
-            'name'=>$request->name,
-            'phone' => $request->phone
-        ];
-
         try {
-            Mail::send('mail', $data, function($message) {
-                $message->to('pelivan96e@gmail.com', 'Admin Panel')->subject
-                ('Новое сообщение с сайта');
-                $message->from('xyz@gmail.com','Admin');
-            });
+            $to      = 'info@eurasia-en.com';
+            $subject = 'Новое сообщение с сайта eurasia-en.com';
+            $message = "Name: ". $request->name . "<br>" . "Phone: " . $request->phone;
+            $headers = 'From: operator@eurasia-en.com' . "\r\n" .
+                'Reply-To: operator@eurasia-en.com' . "\r\n" .
+                'X-Mailer: PHP/' . phpversion();
+
+            mail($to, $subject, $message, $headers);
 
             return response(['status' => 'ok'], 200);
         } catch (Exception $e) {

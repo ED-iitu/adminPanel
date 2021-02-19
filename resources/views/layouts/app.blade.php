@@ -39,6 +39,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('news.index') }}">Список новостей</a>
                         </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('contacts.index') }}">Контакты</a>
+                            </li>
                         @endguest
                     </ul>
 

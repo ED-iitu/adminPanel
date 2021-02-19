@@ -10,7 +10,6 @@
                 </div>
                 <div>
                     <a class="btn btn-primary" href="{{ route('news.index') }}"> Вернуться назад</a>
-                    <a class="btn btn-success" href="{{ route('news.index') }}"> Редактировать</a>
                 </div>
             </div>
         </div>

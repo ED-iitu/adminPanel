@@ -21,3 +21,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/v1/news', 'NewsController@getAllNews');
 Route::get('/v1/news/?id={id}', 'NewsController@getNewsById');
 Route::get('/v1/sendemail','NewsController@basic_email');
+Route::get('/v1/contacts', 'ContactsController@getContacts');
