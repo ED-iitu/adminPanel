@@ -22,3 +22,4 @@ Route::get('/v1/news', 'NewsController@getAllNews');
 Route::get('/v1/news/?id={id}', 'NewsController@getNewsById');
 Route::get('/v1/sendemail','NewsController@basic_email');
 Route::get('/v1/contacts', 'ContactsController@getContacts');
+Route::get('/v1/commodity', 'NewsController@getCommodityData');
