@@ -80,8 +80,12 @@ class ContactsController extends Controller
         $contacts = Contacts::find($request->id);
 
         $data = [
-            'phone' => $request->phone,
-            'address' => $request->address
+            'first_phone' => $request->first_phone,
+            'second_phone' => $request->second_phone,
+            'first_email' => $request->first_email,
+            'second_email' => $request->second_email,
+            'address_kz' => $request->address_kz,
+            'address_eu' => $request->address_eu,
         ];
 
         $contacts->update($data);
@@ -101,9 +105,10 @@ class ContactsController extends Controller
     }
 
 
-    public function getContacts()
+    public function getContacts(Request $request)
     {
-        $contacts = Contacts::all();
+        $lang = $request->lang ?? 'ru';
+        $contacts = Contacts::where('lang', $lang)->get();
 
         if ($contacts->isEmpty()) {
             return response(['error' => 'Контакты не найдены'], 404);

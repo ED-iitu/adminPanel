@@ -255,35 +255,40 @@ class NewsController extends Controller
                             'subject' => 'Energy',
                             'last_value' => $crudeOilContent->attr->last_value,
                             'persent' => $crudeOilPersent,
-                            'date' => now()
+                            'date' => now(),
+                            'decimals' => $crudeOilContent->attr->decimals ?? 2
                         ],
                         [
                             'name' => 'Brient Oil',
                             'subject' => 'Energy',
                             'last_value' => $brientOilContent->attr->last_value,
                             'persent' => $brientPersent,
-                            'date' => now()
+                            'date' => now(),
+                            'decimals' => $brientOilContent->attr->decimals ?? 2
                         ],
                         [
                             'name' => 'Gold',
                             'subject' => 'Metals',
                             'last_value' => $goldContent->attr->last_value,
                             'persent' => $goldPersent,
-                            'date' => now()
+                            'date' => now(),
+                            'decimals' => $goldContent->attr->decimals ?? 2
                         ],
                         [
                             'name' => 'Natural Gas',
                             'subject' => 'Metals',
                             'last_value' => $gasContent->attr->last_value,
                             'persent' => $gasPersent,
-                            'date' => now()
+                            'date' => now(),
+                            'decimals' => $gasContent->attr->decimals ?? 2
                         ],
                         [
                             'name' => 'Silver',
                             'subject' => 'Metals',
                             'last_value' => $silverContent->attr->last_value,
                             'persent' => $silverPersent,
-                            'date' => now()
+                            'date' => now(),
+                            'decimals' => $silverContent->attr->decimals ?? 2
                         ]
                     ]
                 ], 200);
