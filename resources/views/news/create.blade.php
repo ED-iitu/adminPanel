@@ -39,6 +39,9 @@
             <div class="form-group">
                 <input type="text" class="form-control" id="uname" placeholder="Заголовок" name="title" required>
             </div>
+            <div class="form-group">
+                <input type="date" class="form-control" id="uname" placeholder="Дата события" name="event_date" required>
+            </div>
             <textarea class="form-control" id="shortText" rows="3" name="short_text" placeholder="Краткое описание" required></textarea>
             <textarea class="form-control mt-3" id="longText" rows="4" name="full_text" placeholder="Полное описание" required></textarea>
             <div class="form-group mt-3">

@@ -31,8 +31,8 @@
                <h4>Полный текст:</h4>
                <p><b>{{$news->full_text}}</b></p>
 
-               <h4>Дата создания:</h4>
-               <p><b>{{$news->created_at}}</b></p>
+               <h4>Дата события:</h4>
+               <p><b>{{$news->event_date}}</b></p>
            </div>
        </div>
    </div>

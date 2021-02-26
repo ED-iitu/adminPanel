@@ -63,6 +63,7 @@ class NewsController extends Controller
                 'full_text' => $validated['full_text'],
                 'lang'  => $validated['lang'],
                 'image' => '/uploads/' . $image_link->getFilename() . '.' . $extensionImage,
+                'event_date' => $request->event_date ?? now(),
             ]);
 
             return redirect()->back()->with('success', 'Новость успешно добавлена');
@@ -127,6 +128,7 @@ class NewsController extends Controller
             'full_text' => $validated['full_text'],
             'lang'  => $news->lang,
             'image' => $img ?? '/uploads/' . $image_link->getFilename() . '.' . $extensionImage,
+            'event_date' => $request->event_date ?? now(),
         ]);
 
         return redirect()->back()->with('success', 'Новость успешно обновлена');
